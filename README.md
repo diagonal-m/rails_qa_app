@@ -9,6 +9,7 @@
 - ユーザーはニックネームとアバター画像を登録できる
 - ユーザーは質問を投稿できる
 - ユーザーは自分の質問を編集・削除できる
+- ユーザーは質問を解決済み状態に変更できる
 - ユーザーは質問に対して回答ができる
 - ユーザーは質問を検索できる
 - 質問があった際に全員に対して質問があった旨をメールで通知する（ただし自分は除く）
@@ -37,6 +38,7 @@
   - id: integer
   - title: string
   - content: text
+  - status: boolean
   - user_id: integer
   - created_at: datetime
   - updated_at: datetime
