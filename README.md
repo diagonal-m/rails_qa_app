@@ -92,7 +92,7 @@
 | 質問投稿をする                   | POST     | /questions             | questions#create        |
 | 質問詳細を表示する               | GET      | /questions/:id         | questions#show          |
 | 質問編集ページを表示             | GET      | /questions/:id/edit    | questions#edit          |
-| 質問を更新する                   | POST     | /questions/:id         | question#update         |
+| 質問を更新する                   | POST     | /questions/:id         | questions#update        |
 | 質問を削除する                   | DELETE   | /questions/:id         | questions#destroy       |
 | 回答する                         | POST     | /questions/:id/answers | answers#create          |
 | ユーザ一覧を表示                 | GET      | /users                 | users#index             |
