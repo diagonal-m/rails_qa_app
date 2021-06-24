@@ -67,3 +67,7 @@ gem 'html2slim'
 
 # bootstrapを使えるように
 gem 'bootstrap'
+
+gem 'rubocop', require: false
+
+gem 'pre-commit'

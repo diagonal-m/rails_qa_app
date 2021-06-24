@@ -1,0 +1,15 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - Gemfile
+
+# =================style=====================
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# 文字列リテラルをfreezeしないを許可する
+Style/FrozenStringLiteralComment:
+  Enabled: false
