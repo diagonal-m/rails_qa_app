@@ -75,3 +75,30 @@
   - checksum: string
   - created_at: datetime
 
+
+
+## エンドポイント・コントローラ設計
+
+| やりたいこと                     | メソッド | エンドポイント         | コントローラ#アクション |
+| -------------------------------- | -------- | ---------------------- | ----------------------- |
+| ユーザー登録画面を表示           | GET      | /users/new             | users#new               |
+| ユーザー登録をする               | POST     | /users                 | users#create            |
+| ログイン画面を表示               | GET      | /login                 | sessions#new            |
+| ログインする                     | POST     | /login                 | sessions#create         |
+| 質問一覧を表示（全て）           | GET      | /questions             | questions#index         |
+| 質問一覧を表示（未解決）         | GET      | /questions?solved=0    | questions#index         |
+| 質問一覧を表示（解決済み）       | GET      | /questions?solved=1    | questions#index         |
+| 質問投稿ページを表示             | GET      | /questions/new         | questions#new           |
+| 質問投稿をする                   | POST     | /questions             | questions#create        |
+| 質問詳細を表示する               | GET      | /questions/:id         | questions#show          |
+| 質問編集ページを表示             | GET      | /questions/:id/edit    | questions#edit          |
+| 質問を更新する                   | PATCH    | /questions/:id         | questions#update        |
+| 質問を削除する                   | DELETE   | /questions/:id         | questions#destroy       |
+| 回答する                         | POST     | /questions/:id/answers | answers#create          |
+| ユーザ一覧を表示                 | GET      | /users                 | users#index             |
+| 管理画面用のログインページ表示   | GET      | /admin/login           | admin/sessions#new      |
+| (管理画面)質問一覧ページ表示     | GET      | /admin/questions       | admin/questions#index   |
+| (管理画面)質問を削除する         | DELETE   | /admin/questions/:id   | admin/questions#destroy |
+| (管理画面)ユーザー一覧ページ表示 | GET      | /admin/users           | admin/users#index       |
+| (管理画面)ユーザーを削除する     | DELETE   | /admin/users/:id       | admin/users#destroy     |
+
