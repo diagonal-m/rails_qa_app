@@ -4,6 +4,7 @@ AllCops:
   # rubocopの除外対象ファイル
   Exclude:
     - Gemfile
+    - db/schema.rb
 
 # =================style=====================
 
