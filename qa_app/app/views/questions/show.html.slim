@@ -13,3 +13,4 @@ table.table.table-hover
     tr 
       th= Question.human_attribute_name(:content)
       td= simple_format(h(@question.content), {}, sanitize: false, wrapper_tag: "div")
+= link_to '編集', edit_question_path, class: 'btn btn-primary mr-3'

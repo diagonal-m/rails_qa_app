@@ -1,2 +1,6 @@
-h1 Questions#edit
-p Find me in app/views/questions/edit.html.slim
+h1 質問の編集
+
+.nav.justify-content-end 
+  = link_to '一覧', questions_path, class: 'nav-link'
+
+= render partial: 'form', locals: { question: @question }

@@ -1,0 +1,8 @@
+= form_with model: question, local: true do | f |
+  .form-group 
+    = f.label :title
+    = f.text_field :title , class: 'form-control', id: 'question_content'
+  .form-group 
+    = f.label :content
+    = f.text_area :content, rows: 5, class: 'form-control', id: 'question_content'
+  = f.submit nil, class: 'btn-primary'

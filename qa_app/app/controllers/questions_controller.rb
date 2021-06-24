@@ -11,7 +11,15 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
-  def edit; end
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    question = Question.find(params[:id])
+    question.update!(question_params)
+    redirect_to questions_url, notice: "質問「#{question.title}」を更新しました。"
+  end
 
   def create
     question = Question.new(question_params)
