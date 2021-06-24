@@ -7,6 +7,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      question: 質問
+    attributes:
+      question:
+        id: ID
+        title: 質問タイトル
+        content: 質問内容
+        created_at: 質問日時
+        updated_at: 更新日時
   date:
     abbr_day_names:
     - 日
@@ -142,7 +151,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: 投稿する
       submit: 保存する
       update: 更新する
   number:

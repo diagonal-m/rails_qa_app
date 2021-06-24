@@ -1,0 +1,15 @@
+h1 質問詳細
+
+.nav.justify-content-end 
+  = link_to '一覧', questions_path, class: 'nav-link'
+table.table.table-hover 
+  tbody 
+    tr 
+      th= Question.human_attribute_name(:id)
+      td= @question.id
+    tr 
+      th= Question.human_attribute_name(:title)
+      td= @question.title
+    tr 
+      th= Question.human_attribute_name(:content)
+      td= simple_format(h(@question.content), {}, sanitize: false, wrapper_tag: "div")
