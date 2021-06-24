@@ -5,7 +5,7 @@ AllCops:
   Exclude:
     - Gemfile
     - db/schema.rb
-    - test/*
+    - test/**/*
 
 # =================style=====================
 
