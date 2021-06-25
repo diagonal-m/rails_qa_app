@@ -1,3 +1,8 @@
+- if question.errors.present?
+  ul#error_explanation 
+    - question.errors.full_messages.each do |message|
+      li= message
+
 = form_with model: question, local: true do | f |
   .form-group 
     = f.label :title
