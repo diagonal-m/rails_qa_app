@@ -10,6 +10,8 @@ html
   body
     .app-title.navbar.navbar-expand-md.nabvar-light.bg-light
       .navbar-brand Q & A 
+      = link_to "ユーザー一覧", users_path
+      = link_to "質問一覧", questions_path
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
