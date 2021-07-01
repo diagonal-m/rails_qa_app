@@ -2,17 +2,11 @@ h1 質問詳細
 
 .nav.justify-content-end 
   = link_to '一覧', questions_path, class: 'nav-link'
-table.table.table-hover 
-  tbody 
-    tr 
-      th= Question.human_attribute_name(:id)
-      td= @question.id
-    tr 
-      th= Question.human_attribute_name(:title)
-      td= @question.title
-    tr 
-      th= Question.human_attribute_name(:content)
-      td= simple_format(h(@question.content), {}, sanitize: false, wrapper_tag: "div")
+
+.card 
+  .card-body 
+    h5.card-title= @question.title
+    p.card-text= @question.content
 
 - if @question.user_id == @current_user.id
   = link_to '編集', edit_question_path, class: 'btn btn-primary mr-3'
