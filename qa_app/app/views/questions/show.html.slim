@@ -13,11 +13,13 @@ h1 質問詳細
   = link_to '削除', @question, method: :delete, data: { confirm: "質問「#{@question.title}」を削除しますよろしいですか？" }, class: 'btn btn-danger'
 
 = form_with(model: [@question, @answer], method: :post) do |f|
-  = f.text_area :content
-  = f.hidden_field :question_id, value: @question.id
-  = f.submit '回答する'
+  .mb-3 
+    = f.text_area :content, class: 'form-control', rows: '3'
+    = f.hidden_field :question_id, value: @question.id
+    = f.submit '回答する'
 
 h2 回答
 
-- @answers.each do |answer|
-  = answer.content 
+.card 
+  - @answers.each do |answer|
+    .card-body= answer.content
