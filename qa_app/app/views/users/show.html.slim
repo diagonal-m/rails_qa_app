@@ -23,3 +23,4 @@ table.table-hover
       th= User.human_attribute_name(:updated_at)
       td= @user.updated_at
 = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary mr-3'
