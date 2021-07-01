@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers  # 質問詳細に関連づけられている回答を全取得
+    @answer = current_user.answers.new  # 投稿詳細画面で回答投稿を行うため、formのパラメータ用にAnswerオブジェクトを取得
   end
 
   def new
