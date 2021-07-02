@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @q = Question.all.ransack(params[:q])
     @questions = @q.result(distinct: true)
+    @questions = @questions.where(solved: !params['solved'].to_i.zero?) if params['solved']
   end
 
   def show
