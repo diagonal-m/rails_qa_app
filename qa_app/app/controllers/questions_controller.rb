@@ -20,7 +20,11 @@ class QuestionsController < ApplicationController
   def update
     question = Question.find(params[:id])
     question.update!(question_params)
-    redirect_to questions_url, notice: "質問「#{question.title}」を更新しました。"
+    if question_params['solved']
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to questions_url, notice: "質問「#{question.title}」を更新しました。"
+    end
   end
 
   def create
