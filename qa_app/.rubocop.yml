@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - Gemfile
     - db/schema.rb
+    - db/migrate/*
     - test/**/*
 
 # =================style=====================
