@@ -73,3 +73,5 @@ gem 'rubocop', require: false
 gem 'pre-commit'
 
 gem 'mini_magick', '~> 4.8'
+
+gem 'ransack'
