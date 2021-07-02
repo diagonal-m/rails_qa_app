@@ -6,7 +6,7 @@ table.table-hover
   tbody 
     tr 
       th= User.human_attribute_name(:image)
-      td= image_tag @user.image if @user.image.attached? 
+      td= image_tag @user.image.variant(resize:'200x200') if @user.image.attached? 
     tr 
       th= User.human_attribute_name(:id)
       td= @user.id
