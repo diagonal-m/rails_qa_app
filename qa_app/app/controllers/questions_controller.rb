@@ -1,8 +1,9 @@
 class QuestionsController < ApplicationController
   def index
     @q = Question.all.ransack(params[:q])
-    @questions = @q.result(distinct: true)
-    @questions = @questions.where(solved: !params['solved'].to_i.zero?) if params['solved']
+    @questions = @q.result(distinct: true).page(params[:page])
+    solved = !params['solved'].to_i.zero?
+    @questions = @questions.where(solved: solved).page(params[:page]) if solved
   end
 
   def show
