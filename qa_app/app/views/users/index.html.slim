@@ -1,13 +1,8 @@
 h1 ユーザー一覧
 
-.mb-3 
-table.table.table-hover 
-  thead.thead-default 
-    tr
-      th= User.human_attribute_name(:name)
-      th 
-    tbody 
-    - @users.each do |user|
-      tr 
-        td= link_to user.name, user
-        td 
+.card 
+  - @users.each do |user|
+    .card-body 
+      = image_tag user.image.variant(resize:'50x50') if user.image.attached? 
+      = link_to user.name, user
+    hr

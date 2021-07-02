@@ -4,7 +4,8 @@ h1 質問詳細
   = link_to '一覧', questions_path, class: 'nav-link'
 
 .card 
-  .card-body 
+  .card-body
+    = image_tag @question.user.image.variant(resize:'50x50') if @question.user.image.attached?
     h5.card-title= @question.title
     p.card-text= @question.content
 
@@ -27,4 +28,6 @@ h2 回答
 
 .card 
   - @answers.each do |answer|
-    .card-body= answer.content
+    .card-body
+      = image_tag answer.user.image.variant(resize:'50x50') if answer.user.image.attached? 
+      = answer.content

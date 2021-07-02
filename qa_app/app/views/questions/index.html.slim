@@ -2,13 +2,9 @@ h1 質問一覧
 
 = link_to '質問投稿', new_question_path, class: 'btn btn-primary'
 
-.mb-3 
-table.table.table-hover 
-  thead.thead-default 
-    tr 
-      th= Question.human_attribute_name(:title)
-      th
-    tbody 
-      - @question.each do | question |
-        tr 
-          td= link_to question.title, question
+.card 
+  - @questions.each do |question|
+    .card-body
+      = image_tag question.user.image.variant(resize:'50x50') if question.user.image.attached? 
+      = link_to question.title, question
+    hr
