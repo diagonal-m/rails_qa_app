@@ -5,6 +5,9 @@ h1 ユーザーの詳細
 table.table-hover 
   tbody 
     tr 
+      th= User.human_attribute_name(:image)
+      td= image_tag @user.image if @user.image.attached? 
+    tr 
       th= User.human_attribute_name(:id)
       td= @user.id
     tr 
