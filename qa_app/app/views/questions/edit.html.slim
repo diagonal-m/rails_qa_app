@@ -10,4 +10,9 @@ h1 質問の編集
   .form-group 
     = f.label :content
     = f.text_area :content, rows: 5, class: 'form-control', id: 'question_content'
+  - if @question.solved
+    = link_to '回答受付中に戻す', question_path(@question.id, question: {solved: false}), method: :put
+  - else
+    = link_to '解決済みにする', question_path(@question.id, question: {solved: true}), method: :put
+
   = f.submit nil, class: 'btn-primary'
