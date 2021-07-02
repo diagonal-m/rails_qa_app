@@ -7,7 +7,7 @@ h1 質問詳細
   .card-body
     = image_tag @question.user.image.variant(resize:'50x50') if @question.user.image.attached?
     h5.card-title= @question.title
-    p.card-text= @question.content
+    p.catd-text= simple_format(h(@question.content), {}, sanitize: false, wrapper_tag: "div")
 
 - if @question.user_id == @current_user.id
   = link_to '編集', edit_question_path, class: 'btn btn-primary mr-3'
