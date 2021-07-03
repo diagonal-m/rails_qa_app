@@ -1,0 +1,9 @@
+h1 ユーザー一覧
+
+.card 
+  - @users.each do |user|
+    .card-body 
+      = image_tag user.image.variant(resize:'50x50') if user.image.attached? 
+      = user.name
+      = link_to '削除', admin_user_path(user), method: :delete, data: { confirm: "質問「#{user.name}」を削除しますよろしいですか？" }, class: 'btn btn-danger'
+    hr
