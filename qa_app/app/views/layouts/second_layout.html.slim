@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | QaApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .app-title.navbar.navbar-expand-md.nabvar-light.bg-light
+      .navbar-brand Q & A 
+
+      ul.navbar-nav.ml-auto 
+        - if current_user 
+          /li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
+          li.nav-item= link_to '質問一覧', admin_questions_path, class: 'nav-link'
+          li.nav-item= link_to '管理者画面ログアウト', logout_path, method: :delete, class: 'nav-link'
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+    = yield
