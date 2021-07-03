@@ -25,3 +25,6 @@ Style/Documentation:
 Metrics/AbcSize:
   Enabled: true
   Max: 20
+
+Style/ClassAndModuleChildren:
+  Enabled: false
