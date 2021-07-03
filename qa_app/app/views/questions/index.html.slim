@@ -1,19 +1,16 @@
-h1 質問一覧
 
-= link_to '質問投稿', new_question_path, class: 'btn btn-primary'
-
-.btn-group 
-  = link_to '全て', '/questions', class: 'btn btn-primary', method: :get
-  = link_to '未解決', '/questions?solved=0', class: 'btn btn-primary', method: :get
-  = link_to '解決済み', '/questions?solved=1', class: 'btn btn-primary', method: :get
+.mx-auto style="text-align: center;"
+  .btn-group 
+    = link_to '全て', '/questions', class: 'btn btn-primary', method: :get, style: "width: 150px;"
+    = link_to '未解決', '/questions?solved=0', class: 'btn btn-primary', method: :get, style: "width: 150px;"
+    = link_to '解決済み', '/questions?solved=1', class: 'btn btn-primary', method: :get, style: "width: 150px;"
 
 = search_form_for @q, class: 'mb-5' do |f|
-  .form-group.row 
-    = f.label :title_cont, '検索ワード', class: 'col-sm-2 col-form-label'
-    .col-sm-10 
-      = f.search_field :title_cont, class: 'form-control'
-  .form-group 
-    = f.submit class: 'btn btn-outline-primary'
+  .form-group.row
+    .col-sm-10 style="margin: 0 auto;"
+      = f.search_field :title_cont, class: 'form-control', placeholder: '検索ワード'
+    .col-auto.form-group 
+      = f.submit class: 'btn btn-outline-primary'
 
 .card 
   - @questions.each do |question|
