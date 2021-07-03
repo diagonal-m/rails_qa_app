@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required
 
-  def new; end
+  def new
+    # ログイン状態の時はroot_pathにリダイレクト
+    redirect_to root_path if session[:user_id]
+  end
 
   def create
     user = User.find_by(email: session_params[:email])
