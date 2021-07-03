@@ -11,8 +11,4 @@ class Admin::UsersController < ApplicationController
     @user.destroy
     redirect_to admin_users_url, notice: "ユーザー「#{@user.name}」を削除しました"
   end
-
-  def admin_required
-    redirect_to root_path unless current_user.admin
-  end
 end
