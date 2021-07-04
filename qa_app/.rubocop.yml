@@ -1,0 +1,30 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  # rubocopの除外対象ファイル
+  Exclude:
+    - Gemfile
+    - db/schema.rb
+    - db/migrate/*
+    - test/**/*
+
+# =================style=====================
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# 文字列リテラルをfreezeしないを許可する
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# ドキュメントの無い public class を許可する
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
+
+Style/ClassAndModuleChildren:
+  Enabled: false

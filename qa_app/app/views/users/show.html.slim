@@ -1,0 +1,29 @@
+h1 ユーザーの詳細
+
+.nav.justify-content-end 
+  = link_to '一覧', users_path, class: 'nav-link'
+table.table-hover 
+  tbody 
+    tr 
+      th= User.human_attribute_name(:image)
+      td= image_tag @user.image.variant(resize:'200x200') if @user.image.attached? 
+    tr 
+      th= User.human_attribute_name(:id)
+      td= @user.id
+    tr 
+      th= User.human_attribute_name(:name)
+      td= @user.name
+    tr 
+      th= User.human_attribute_name(:email)
+      td= @user.email
+    tr 
+      th= User.human_attribute_name(:admin)
+      td= @user.admin? ? 'あり' : 'なし'
+    tr 
+      th= User.human_attribute_name(:created_at)
+      td= @user.created_at
+    tr 
+      th= User.human_attribute_name(:updated_at)
+      td= @user.updated_at
+= link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
+= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary mr-3'

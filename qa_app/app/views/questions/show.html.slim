@@ -1,0 +1,33 @@
+h1 質問詳細
+
+.nav.justify-content-end 
+  = link_to '一覧', questions_path, class: 'nav-link'
+
+.card 
+  .card-body
+    = image_tag @question.user.image.variant(resize:'50x50') if @question.user.image.attached?
+    h5.card-title= @question.title
+    p.catd-text= simple_format(h(@question.content), {}, sanitize: false, wrapper_tag: "div")
+
+- if @question.user_id == @current_user.id
+  = link_to '編集', edit_question_path, class: 'btn btn-primary mr-3'
+  - if @question.solved
+    = link_to '解決済み', question_path(@question.id, question: {solved: false}), method: :put, class: 'btn btn-success'
+  - else
+    = link_to '受付中', question_path(@question.id, question: {solved: true}), method: :put, class: 'btn btn-secondary'
+  = link_to '削除', @question, method: :delete, data: { confirm: "質問「#{@question.title}」を削除しますよろしいですか？" }, class: 'btn btn-danger'
+
+= form_with(model: [@question, @answer], method: :post) do |f|
+  - if not @question.solved
+    .mb-3
+      = f.text_area :content, class: 'form-control', rows: '3'
+      = f.hidden_field :question_id, value: @question.id
+      = f.submit '回答する'
+
+h2 回答
+
+.card 
+  - @answers.each do |answer|
+    .card-body
+      = image_tag answer.user.image.variant(resize:'50x50') if answer.user.image.attached? 
+      = answer.content

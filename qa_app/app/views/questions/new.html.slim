@@ -1,0 +1,6 @@
+h1 質問投稿
+
+.nav.justify-content-end 
+  = link_to '一覧', questions_path, class: 'nav-link'
+
+= render partial: 'form', locals: { question: @question }

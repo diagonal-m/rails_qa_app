@@ -1,0 +1,8 @@
+h1 ユーザー一覧
+
+.card 
+  - @users.each do |user|
+    .card-body 
+      = image_tag user.image.variant(resize:'50x50') if user.image.attached? 
+      = link_to user.name, user
+    hr
